@@ -1,0 +1,18 @@
+def bucket_sort(array, n):
+  # Create 'n' empty buckets.
+  buckets = [[] for i in range(n)]
+
+  # Put array elements into buckets.
+  for i in range(n):
+    buckets[int(array[i] * 10)].append(array[i])
+
+  # Sort the elements of individual buckets.
+  for i in range(n):
+    buckets[i].sort()
+
+  # Concatenate the sorted buckets.
+  sorted_array = []
+  for i in range(n):
+    sorted_array.extend(buckets[i])
+
+  return sorted_array
